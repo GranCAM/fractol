@@ -1,0 +1,7 @@
+/home/cam/fractol/include/CMakeFiles/mlx42.dir
+/home/cam/fractol/include/CMakeFiles/edit_cache.dir
+/home/cam/fractol/include/CMakeFiles/rebuild_cache.dir
+/home/cam/fractol/include/CMakeFiles/list_install_components.dir
+/home/cam/fractol/include/CMakeFiles/install.dir
+/home/cam/fractol/include/CMakeFiles/install/local.dir
+/home/cam/fractol/include/CMakeFiles/install/strip.dir
