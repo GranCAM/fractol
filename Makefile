@@ -1,16 +1,21 @@
 NAME = fractol
 
-SRCS = fractal.c event.c event2.c main.c tools.c 
+SRCS = fractol.c
+
+LIBMLX = ./MLX42
 
 CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-INC = -I ./include -I ./libft
+INC = -I ./include -I ./libft -I $(LIBMLX)/include
 
 RM = rm -rf
 
-LIBMLX42 = ./include/libmlx42.a -ldl -lglfw -pthread -lm
+LIBMLX42 = ./MLX42/include/libmlx42.a -ldl -lglfw -pthread -lm
+
+#libmlx:
+#	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 LIBFT = ./libft/libft.a
 
@@ -23,17 +28,16 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C ./libft
-	@make -C ./include
+	@make -C $(LIBMLX)/include
 	@$(CC) $(CFLAGS) $(LIBMLX42) $(LIBFT) $(INC) $^ -o $@
 
 clean:
-	@make -C ./include clean
+	@make -C $(LIBMLX)/include clean
 	@make -C ./libft clean
 	@$(RM) $(OBJ)
 
 fclean: clean
 	@make -C ./libft fclean
-	@make -C ./include clean
 	@$(RM) $(NAME)
 
 re: fclean all
